@@ -5,7 +5,8 @@
 
 
 # Run the mnemonic generator and capture the output
-output=$(python3 ./BIP39/generate_eth.py)
+show_keys=true
+output=$(python3 ./BIP39/generate_eth.py $show_keys)
 
 # Print the output
 echo "$output"

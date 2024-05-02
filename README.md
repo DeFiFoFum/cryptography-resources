@@ -7,7 +7,6 @@ This is a simple repo showcasing the power and accessibility of cryptography.
     - [BIP39](#bip39)
   - [Resources](#resources)
 
-
 ## Features
 
 ### BIP39
@@ -16,5 +15,6 @@ This is a simple repo showcasing the power and accessibility of cryptography.
 
 ## Resources
 
+- [trezor/python-mnemonic](https://github.com/trezor/python-mnemonic)
 - [mnemonic python package](https://pypi.org/project/mnemonic/)
 - [bip-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
