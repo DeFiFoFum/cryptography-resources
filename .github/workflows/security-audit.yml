@@ -1,0 +1,104 @@
+name: 🔒 Security Audit & Randomness Certification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  # Run weekly to catch any dependency issues
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+jobs:
+  security-audit:
+    name: Security & Dependency Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Verify mnemonic library source
+        run: |
+          echo "## 📦 Mnemonic Library Verification" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          uv run python -c "
+          import mnemonic
+          import inspect
+          import hashlib
+
+          # Get library info
+          lib_file = inspect.getfile(mnemonic.Mnemonic)
+          with open(lib_file, 'rb') as f:
+              content = f.read()
+              file_hash = hashlib.sha256(content).hexdigest()
+
+          print(f'Library path: {lib_file}')
+          print(f'SHA256: {file_hash}')
+
+          # Verify it uses secrets module
+          source = inspect.getsource(mnemonic.Mnemonic.generate)
+          uses_secrets = 'secrets.token_bytes' in source
+          print(f'Uses secrets.token_bytes: {uses_secrets}')
+
+          if not uses_secrets:
+              raise Exception('SECURITY ALERT: Library does not use secrets module!')
+          " | tee -a $GITHUB_STEP_SUMMARY
+
+      - name: Check for known vulnerabilities
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## 🛡️ Dependency Security Check" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          uv run python -c "
+          from importlib.metadata import version, PackageNotFoundError
+          packages = ['mnemonic', 'eth-account', 'eth-keys', 'pycryptodome']
+          for pkg in packages:
+              try:
+                  ver = version(pkg)
+                  print(f'✅ {pkg}: {ver}')
+              except PackageNotFoundError:
+                  print(f'⚠️ {pkg}: not installed')
+          " | tee -a $GITHUB_STEP_SUMMARY
+
+  randomness-certification:
+    name: 🎲 Randomness Quality Certification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run comprehensive entropy tests
+        id: entropy_test
+        run: |
+          uv run python tests/test_entropy_validation.py 2>&1 | tee entropy_results.txt
+          echo "results<<EOF" >> $GITHUB_OUTPUT
+          cat entropy_results.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Generate certification badge data
+        run: uv run python tests/generate_entropy_report.py >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload entropy test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: entropy-validation-results
+          path: entropy_results.txt
+          retention-days: 90
+

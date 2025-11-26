@@ -1,0 +1,7 @@
+mnemonic==0.21
+# Bitcoin Keys
+bip32utils
+# Ethereum Keys
+eth-account
+eth-utils
+eth-keys

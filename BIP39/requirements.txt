@@ -1,7 +1,0 @@
-mnemonic==0.20
-# Bitcoin Keys
-bip32utils==0.3.post4
-# Ethereum Keys
-eth-account==0.5.6
-eth-utils==1.10.0
-eth-keys==0.3.3

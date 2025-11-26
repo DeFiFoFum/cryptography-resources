@@ -6,8 +6,21 @@ DISCLAIMER: For long term storage use offline, preferably on an air-gapped compu
 
 Package Github
 https://github.com/trezor/python-mnemonic
-Setup
+## Setup
 ```bash
-pip3 install -r requirements.txt
-python3 ./mnemonic_generator.py
+# Install dependencies with uv
+uv sync
+
+# Run the mnemonic generator
+uv run python ./mnemonic_generator.py
+```
+
+## Secure Generation
+For more secure seed generation with auto-clearing display:
+```bash
+# Quick mode (petty cash / hot wallets)
+uv run python ./secure_mnemonic_generate.py --quick
+
+# Secure mode (cold storage - use air-gapped!)
+uv run python ./secure_mnemonic_generate.py --secure
 ```

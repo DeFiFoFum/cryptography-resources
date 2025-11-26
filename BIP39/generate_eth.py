@@ -17,11 +17,12 @@ def main(show_keys):
     # show_keys=False to hide the private keys
     derive_keys_and_print(mnemonic_24_words, show_keys=show_keys)
 
-    # Generate a 12-word mnemonic (128 bits of entropy)
-    mnemonic_12_words = generate_mnemonic(128)
-    print("12-word mnemonic:", mnemonic_12_words)
-    # show_keys=True to display the private keys
-    derive_keys_and_print(mnemonic_12_words, show_keys=show_keys)
+    print("NOTE: Skipping 12-word mnemonic.")
+    # # Generate a 12-word mnemonic (128 bits of entropy)
+    # mnemonic_12_words = generate_mnemonic(128)
+    # print("12-word mnemonic:", mnemonic_12_words)
+    # # show_keys=True to display the private keys
+    # derive_keys_and_print(mnemonic_12_words, show_keys=show_keys)
 
 if __name__ == "__main__":
     """

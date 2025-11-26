@@ -1,0 +1,24 @@
+[project]
+name = "cryptography-resources"
+version = "1.0.0"
+description = "Educational cryptography tools for BIP39 mnemonic generation and key derivation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mnemonic==0.21",
+    # Bitcoin Keys
+    "bip32utils",
+    # Ethereum Keys
+    "eth-account",
+    "eth-utils",
+    "eth-keys",
+]
+
+[project.optional-dependencies]
+solana = [
+    "solders",
+]
+
+[tool.uv]
+dev-dependencies = []
+
