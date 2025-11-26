@@ -34,7 +34,13 @@ jobs:
         run: uv sync --python ${{ matrix.python-version }}
 
       - name: Run mnemonic generation test
-        run: uv run python -c "from mnemonic import Mnemonic; m = Mnemonic('english'); print('✅ Mnemonic library loaded'); print(f'Generated: {m.generate(128)[:20]}...')"
+        run: |
+          uv run python -c "
+          from mnemonic import Mnemonic
+          m = Mnemonic('english')
+          print('Mnemonic library loaded')
+          print(f'Generated: {m.generate(128)[:20]}...')
+          "
 
       - name: Run basic functionality tests
         run: uv run python tests/test_functionality.py
