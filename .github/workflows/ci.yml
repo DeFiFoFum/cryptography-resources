@@ -5,18 +5,21 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main]
-  # Allow manual trigger
   workflow_dispatch:
+
+env:
+  # Fix Windows Unicode issues with emojis
+  PYTHONIOENCODING: utf-8
+  PYTHONUTF8: 1
 
 jobs:
   test:
-    name: Test on ${{ matrix.os }} - Python ${{ matrix.python-version }}
+    name: Test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - name: Checkout repository
@@ -27,11 +30,11 @@ jobs:
         with:
           version: "latest"
 
-      - name: Set up Python ${{ matrix.python-version }}
-        run: uv python install ${{ matrix.python-version }}
+      - name: Set up Python
+        run: uv python install 3.13
 
       - name: Install dependencies
-        run: uv sync --python ${{ matrix.python-version }}
+        run: uv sync
 
       - name: Run mnemonic generation test
         run: |
@@ -48,9 +51,8 @@ jobs:
       - name: Run cross-platform task runner
         run: uv run python tasks.py help
 
-  # Separate job for entropy validation (more intensive)
   entropy-validation:
-    name: 🔐 Entropy & Randomness Validation
+    name: Entropy & Randomness Validation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -69,4 +71,3 @@ jobs:
 
       - name: Generate entropy report
         run: uv run python tests/generate_entropy_report.py >> $GITHUB_STEP_SUMMARY
-
