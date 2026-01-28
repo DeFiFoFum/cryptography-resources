@@ -56,7 +56,10 @@ mnemonic:
 
 # Chain-specific generation
 eth:
-	@uv run python ./BIP39/generate_eth.py
+	@echo "⚠️  Generating new Ethereum wallet with private keys visible"
+	@echo "   Make sure to save the mnemonic and private keys securely!"
+	@echo ""
+	@uv run python ./BIP39/generate_eth.py true
 
 btc:
 	@uv run python ./BIP39/derive_bitcoin_keys.py

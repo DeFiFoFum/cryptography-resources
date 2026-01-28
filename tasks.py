@@ -115,8 +115,11 @@ def cmd_mnemonic():
 
 def cmd_eth():
     """Generate Ethereum wallet."""
+    print("⚠️  Generating new Ethereum wallet with private keys visible")
+    print("   Make sure to save the mnemonic and private keys securely!")
+    print("")
     return run_command(
-        ["uv", "run", "python", str(BIP39_DIR / "generate_eth.py")]
+        ["uv", "run", "python", str(BIP39_DIR / "generate_eth.py"), "true"]
     )
 
 
