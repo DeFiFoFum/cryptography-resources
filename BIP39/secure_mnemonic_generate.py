@@ -73,7 +73,7 @@ def print_security_banner(mode: str):
         print("-" * 60)
 
 
-def countdown_display(mnemonic: str, display_seconds: int = 30):
+def countdown_display(mnemonic: str, display_seconds: int = 30, show_space_separated: bool = False):
     """
     Display mnemonic with countdown, then clear.
     """
@@ -93,7 +93,13 @@ def countdown_display(mnemonic: str, display_seconds: int = 30):
     
     if len(words) % cols != 0:
         print()
-    
+
+    if show_space_separated:
+        print("\n" + "-" * 60)
+        print("📋 Space-separated (for copy/paste):")
+        print(f"\n   {mnemonic}\n")
+        print("-" * 60)
+
     print("\n" + "=" * 60)
     print(f"⏱️  Screen will clear in {display_seconds} seconds...")
     print("    Press Ctrl+C to clear immediately")
@@ -127,7 +133,7 @@ def quick_mode():
     strength = 128 if response == "12" else 256
     
     mnemonic = generate_secure_mnemonic(strength)
-    countdown_display(mnemonic, display_seconds=60)
+    countdown_display(mnemonic, display_seconds=60, show_space_separated=True)
     
     # Attempt to clear from memory
     secure_clear_string(mnemonic)
