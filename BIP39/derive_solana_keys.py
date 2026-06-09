@@ -44,9 +44,21 @@ def derive_solana_keys(mnemonic: str, account_count: int = 10) -> List[dict]:
     return keys_list
 
 if __name__ == "__main__":
-    # Example mnemonic for demonstration purposes
-    example_mnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
-    derived_keys = derive_solana_keys(example_mnemonic)
+    import sys
+
+    if len(sys.argv) > 1:
+        # Derive from an existing mnemonic passed as arguments
+        mnemonic = " ".join(sys.argv[1:]).strip().strip('"')
+        if not Mnemonic("english").check(mnemonic):
+            print("❌ Invalid mnemonic (checksum failed)")
+            sys.exit(1)
+    else:
+        # Generate a fresh 24-word mnemonic
+        mnemonic = Mnemonic("english").generate(strength=256)
+        print("⚠️  New wallet generated. Save this mnemonic securely!\n")
+
+    print(f"Mnemonic: {mnemonic}\n")
+    derived_keys = derive_solana_keys(mnemonic)
     for key_info in derived_keys:
         print(f"Account {key_info['account']}:")
         print(f"Address: {key_info['address']}")

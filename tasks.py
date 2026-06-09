@@ -17,6 +17,7 @@ Commands:
     eth          Generate Ethereum wallet
     btc          Generate Bitcoin keys
     solana       Generate Solana keys
+    tron         Generate TRON keys
     test         Run functionality tests
     test-entropy Run entropy validation suite
     clean        Remove cached files
@@ -67,6 +68,7 @@ def show_help():
 ║    eth          Generate Ethereum wallet                     ║
 ║    btc          Generate Bitcoin keys                        ║
 ║    solana       Generate Solana keys                         ║
+║    tron         Generate TRON keys                           ║
 ║                                                              ║
 ║  Testing:                                                    ║
 ║    test         Run functionality tests                      ║
@@ -137,6 +139,13 @@ def cmd_solana():
     )
 
 
+def cmd_tron():
+    """Generate TRON keys."""
+    return run_command(
+        ["uv", "run", "python", str(BIP39_DIR / "derive_tron_keys.py")]
+    )
+
+
 def cmd_test():
     """Run functionality tests."""
     return run_command(
@@ -181,6 +190,7 @@ COMMANDS = {
     "eth": cmd_eth,
     "btc": cmd_btc,
     "solana": cmd_solana,
+    "tron": cmd_tron,
     "test": cmd_test,
     "test-entropy": cmd_test_entropy,
     "clean": cmd_clean,

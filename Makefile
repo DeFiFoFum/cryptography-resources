@@ -1,7 +1,7 @@
 # Cryptography Resources - Makefile
 # For Mac/Linux. Windows users: use `uv run python tasks.py <command>`
 
-.PHONY: help install install-all quick secure mnemonic eth btc solana ledger-check test test-entropy test-all clean
+.PHONY: help install install-all quick secure mnemonic eth btc solana tron ledger-check test test-entropy test-all clean
 
 # Default target
 help:
@@ -21,6 +21,7 @@ help:
 	@echo "║  make eth          Generate Ethereum wallet                  ║"
 	@echo "║  make btc          Generate Bitcoin keys                     ║"
 	@echo "║  make solana       Generate Solana keys                      ║"
+	@echo "║  make tron         Generate TRON keys                        ║"
 	@echo "║                                                              ║"
 	@echo "║  Hardware Wallet:                                            ║"
 	@echo "║  make ledger-check Verify Ledger SE attestation (Nano S Plus)║"
@@ -70,6 +71,10 @@ btc:
 
 solana:
 	@uv run python ./BIP39/derive_solana_keys.py
+
+# Generate TRON keys
+tron:
+	@uv run python ./BIP39/derive_tron_keys.py
 
 # Hardware wallet verification
 DEVICE ?= nano-s-plus

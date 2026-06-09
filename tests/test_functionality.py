@@ -85,6 +85,19 @@ def test_wordlist_integrity():
     print(f"✅ Wordlist integrity verified (2048 words)")
 
 
+def test_tron_derivation():
+    """Test TRON address derivation against a known vector."""
+    sys.path.insert(0, str(Path(__file__).parent.parent / "BIP39"))
+    from derive_tron_keys import derive_tron_keys
+
+    test_mnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
+    keys = derive_tron_keys(test_mnemonic, account_count=1)
+
+    expected_address = "TUEZSdKsoDHQMeZwihtdoBiN46zxhGWYdH"
+    assert keys[0]['address'] == expected_address, f"TRON address mismatch: {keys[0]['address']}"
+    print(f"✅ TRON derivation matches known test vector")
+
+
 def main():
     """Run all tests."""
     print("\n" + "=" * 60)
@@ -97,6 +110,7 @@ def main():
         test_mnemonic_uniqueness,
         test_seed_derivation,
         test_wordlist_integrity,
+        test_tron_derivation,
     ]
     
     passed = 0

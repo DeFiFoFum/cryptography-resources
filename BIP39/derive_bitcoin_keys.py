@@ -1,5 +1,6 @@
 from bip32utils import BIP32Key
 from bip32utils import BIP32_HARDEN
+from mnemonic import Mnemonic
 
 def derive_bitcoin_keys(mnemonic, account_count=10):
     seed = Mnemonic.to_seed(mnemonic)
@@ -25,4 +26,26 @@ def derive_bitcoin_keys(mnemonic, account_count=10):
         })
 
     return keys
+
+
+if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) > 1:
+        # Derive from an existing mnemonic passed as arguments
+        mnemonic = " ".join(sys.argv[1:]).strip().strip('"')
+        if not Mnemonic("english").check(mnemonic):
+            print("❌ Invalid mnemonic (checksum failed)")
+            sys.exit(1)
+    else:
+        # Generate a fresh 24-word mnemonic
+        mnemonic = Mnemonic("english").generate(strength=256)
+        print("⚠️  New wallet generated. Save this mnemonic securely!\n")
+
+    print(f"Mnemonic: {mnemonic}\n")
+    for key_info in derive_bitcoin_keys(mnemonic):
+        print(f"Account {key_info['account']}:")
+        print(f"Address: {key_info['address']}")
+        print(f"Public Key: {key_info['public_key']}")
+        print(f"Private Key: {key_info['private_key']}\n")
 
