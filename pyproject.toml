@@ -18,6 +18,9 @@ dependencies = [
 solana = [
     "solders",
 ]
+ledger = [
+    "ledgerblue",
+]
 
 [tool.uv]
 dev-dependencies = []
