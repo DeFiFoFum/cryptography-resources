@@ -98,6 +98,22 @@ def test_tron_derivation():
     print(f"✅ TRON derivation matches known test vector")
 
 
+def test_substrate_derivation():
+    """Test Substrate/Bittensor SR25519 SS58 derivation."""
+    from derive_substrate_keys import derive_substrate_keys
+
+    test_mnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
+    keys = derive_substrate_keys(test_mnemonic, account_count=2)
+
+    assert len(keys) == 2, f"Expected 2 keys, got {len(keys)}"
+    assert keys[0]["address"].startswith("5"), f"Unexpected SS58 address: {keys[0]['address']}"
+    assert keys[0]["crypto_type"] == "SR25519", f"Unexpected crypto type: {keys[0]['crypto_type']}"
+    assert keys[0]["ss58_format"] == 42, f"Unexpected SS58 format: {keys[0]['ss58_format']}"
+    assert keys[0]["derivation_path"] == "root", f"Unexpected path: {keys[0]['derivation_path']}"
+    assert keys[0]["address"] != keys[1]["address"], "Derived accounts should be unique"
+    print(f"✅ Substrate/Bittensor derivation generated SR25519 SS58 accounts")
+
+
 def main():
     """Run all tests."""
     print("\n" + "=" * 60)
@@ -111,6 +127,7 @@ def main():
         test_seed_derivation,
         test_wordlist_integrity,
         test_tron_derivation,
+        test_substrate_derivation,
     ]
     
     passed = 0
@@ -136,4 +153,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-

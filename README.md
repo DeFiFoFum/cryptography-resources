@@ -90,6 +90,7 @@ make eth      # Ethereum wallet
 make btc      # Bitcoin keys  
 make solana   # Solana keys
 make tron     # TRON keys
+make substrate # Substrate/Bittensor keys
 ```
 
 Each command generates a **fresh 24-word mnemonic** and derives the first 10 accounts. To derive from an existing mnemonic instead, pass it as arguments:
@@ -99,6 +100,8 @@ uv run python BIP39/derive_tron_keys.py word1 word2 ... word24
 ```
 
 > ⚠️ Private keys are printed to the terminal, and mnemonics passed as arguments land in your shell history. For real funds, run on an air-gapped machine and clear your history afterwards.
+
+Substrate/Bittensor generation uses SR25519 keypairs and SS58 format `42` by default. Account `0` is the root account for the mnemonic. Additional accounts use hard derivation paths like `//0`, `//1`, and `//2`.
 
 ## Testing
 

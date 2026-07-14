@@ -119,6 +119,39 @@ wheels = [
 ]
 
 [[package]]
+name = "bittensor-wallet"
+version = "4.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a0/30/7eb06cfd5d901d2cd3760a8b85d66c7b84f96f03d6d0402b306fdf8b6a2d/bittensor_wallet-4.1.0.tar.gz", hash = "sha256:f0f34641a4b9110def9e35fe22498195fcb31d143dc4f76dd9022db374ccd484", size = 63711, upload-time = "2026-05-28T16:36:54.933Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fa/15/629fec8605755f8c8cf04490b61e329a3a44f0ece3ebf194bc420c9e8374/bittensor_wallet-4.1.0-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:92fbd6dd5361614bbb71512c7854e1d27ff53ec094225aceb6449205d61f8867", size = 948573, upload-time = "2026-05-28T16:36:48.372Z" },
+    { url = "https://files.pythonhosted.org/packages/b9/91/dc955e0bc8b3d9bff8266aedb50d23d4a2626cf7b6a265938aaa245e2aa0/bittensor_wallet-4.1.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:060ad7ae6fb6972ee3e31600510d4393b5184325226fca32c1b064b9388de6ce", size = 895046, upload-time = "2026-05-28T16:36:41.761Z" },
+    { url = "https://files.pythonhosted.org/packages/42/f9/2c9a279b09412005614c6e1ec55d268089b84fcaa645e90b4daacd950504/bittensor_wallet-4.1.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e46350369af89f9c156fff8fc75908582648bbe71be05e4ac4b2366e174b07cc", size = 3155798, upload-time = "2026-05-28T16:36:18.924Z" },
+    { url = "https://files.pythonhosted.org/packages/62/52/d27864b5fcb6d433eaba0dbd0493932b46c50fe003c7cd5b63c7f8237878/bittensor_wallet-4.1.0-cp310-cp310-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:28ea313f651f065963b875f77644f6d71e34cd0d8b284040abd6e11fde2de470", size = 3176813, upload-time = "2026-05-28T16:36:26.229Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/b6/4f21d3b15629c8841f408ffe00fb424d21f8e6d02475d3dc529377d6148d/bittensor_wallet-4.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0be6c6ebb592fe966c9d256cd3ed80a7ebd7ae9f9a8eaf24f53a3bee28fdda2c", size = 3365249, upload-time = "2026-05-28T16:36:34.616Z" },
+    { url = "https://files.pythonhosted.org/packages/63/92/57bb987e9c0a9a8d49f52af718e48ef8a6c40a81d745dcd25f1e3cc31c8d/bittensor_wallet-4.1.0-cp311-cp311-macosx_10_12_x86_64.whl", hash = "sha256:0915cfc9327b15279e8d8d9e2a11b2ed9a559339545cc55fe0bce13fd39564e0", size = 948193, upload-time = "2026-05-28T16:36:49.79Z" },
+    { url = "https://files.pythonhosted.org/packages/f1/3e/0cd3f82485b925dff44a73d999586e7273d7a33a459ebc7fb341a0ea9622/bittensor_wallet-4.1.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:591c51f60bb8536750c3ce6092efe83f1a1f55778a5bf5db69dc8bedfd71872a", size = 894658, upload-time = "2026-05-28T16:36:42.997Z" },
+    { url = "https://files.pythonhosted.org/packages/d6/3b/efff96fe81de74c6e8d928e618a78692c88a169f69d0c06f5ffb8576c892/bittensor_wallet-4.1.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:db5f506839402d680b7a0aadde893faa162ba746a75708f455f4f11a691fbdfb", size = 3155390, upload-time = "2026-05-28T16:36:20.637Z" },
+    { url = "https://files.pythonhosted.org/packages/97/6c/fe5628407d7ba4dba93183cce5e8ae11fd3f6c4e2c55a90ff562e75f418d/bittensor_wallet-4.1.0-cp311-cp311-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d96e5202f898c3d1035d7844a946d4fb42fa522d65055e2f9d05224bf6ad6d2c", size = 3175906, upload-time = "2026-05-28T16:36:27.621Z" },
+    { url = "https://files.pythonhosted.org/packages/76/b9/51e8cf790af60c454407d43873352b8427a5dcbb878e3e49bfdbb87ad717/bittensor_wallet-4.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b25d5cb6bdbc6d20d4c347ec82938420a367c75b03e5d957857ca4df973afc2e", size = 3364523, upload-time = "2026-05-28T16:36:36.144Z" },
+    { url = "https://files.pythonhosted.org/packages/3c/34/4e25a73bc54689c02a0915ebcd08ac4c514e42dd3d473967fcfa7fb11c7d/bittensor_wallet-4.1.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:89c21a657f8f40b495b098d16aa77a58eb7e62f68879ea58febd8ca7536a4463", size = 944313, upload-time = "2026-05-28T16:36:50.963Z" },
+    { url = "https://files.pythonhosted.org/packages/dd/95/6406e9331b88a071529287e290ea64d37ab9c217be8a07f594a49d49fda3/bittensor_wallet-4.1.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:8eccee4cdef228ec4ef351ee5334fe2bd83a2db5ffc112b4e8c626056dff4d45", size = 889004, upload-time = "2026-05-28T16:36:44.38Z" },
+    { url = "https://files.pythonhosted.org/packages/40/45/8a31bf6b5c8b0827ad001c58ec548fcce14c6b9d2c830b879cb8985ddccd/bittensor_wallet-4.1.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:856dd7e5f4bac933da3304cd5d29101d424b97ebd39996405b46882b0085079c", size = 3154691, upload-time = "2026-05-28T16:36:21.979Z" },
+    { url = "https://files.pythonhosted.org/packages/14/cb/ab34edd41c5ab8ee86c41b6343696bfb59bf75802fca3452c2150ca66026/bittensor_wallet-4.1.0-cp312-cp312-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:22b91e4c8b336ec5739c3c6262ea21cbff5e005d4e38963097f0ed0fed2bf80b", size = 3174987, upload-time = "2026-05-28T16:36:29.009Z" },
+    { url = "https://files.pythonhosted.org/packages/1c/2d/2035f3929a3827adaf69534d7ce43866d7e131398ad3a47d9c958a115b9f/bittensor_wallet-4.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:796b924712e5306bd93bcf17483012a01fae8ba526d55d2424933ffb70a462a7", size = 3364450, upload-time = "2026-05-28T16:36:37.437Z" },
+    { url = "https://files.pythonhosted.org/packages/e0/54/46e32add1a0fa54fe4beca3bc9fdee333e3fc2d99e98fc8837f0bcffe704/bittensor_wallet-4.1.0-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:e79ee6b95ee197902b38e0a768503bfd574412bfa982988ca4aa1011a5998434", size = 943851, upload-time = "2026-05-28T16:36:52.346Z" },
+    { url = "https://files.pythonhosted.org/packages/10/ea/58e10f9e46490ac5f00e06c0449b8322a810f7ca121475a96a3cf732592b/bittensor_wallet-4.1.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:96d8110410e110e7f1ebdaae892ccea2a4cda79b1664c6b2513cc3f4f30f3dfd", size = 888130, upload-time = "2026-05-28T16:36:45.763Z" },
+    { url = "https://files.pythonhosted.org/packages/84/d5/17c7a4f91c111d2dc5dd3fa79c98846c911b9c74c7269bae8beb198b0ee2/bittensor_wallet-4.1.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2c8a5d366a2010663103306a9b508d2efe0b5bf6b90b542a01fcb61f6215de13", size = 3154746, upload-time = "2026-05-28T16:36:23.509Z" },
+    { url = "https://files.pythonhosted.org/packages/9e/c6/d4feb8ac136ee063985e389c8f398be3afea85b41787de0b730e75140a3a/bittensor_wallet-4.1.0-cp313-cp313-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:2ec09575fb03cbd1ee39b8a74b9cf1726f3f37ebe523a990214c9cb167c5d2c6", size = 3174162, upload-time = "2026-05-28T16:36:31.125Z" },
+    { url = "https://files.pythonhosted.org/packages/a4/c3/0d393670a1bd59e6478b944a75845a75c0685261c201c6d750945b1195e6/bittensor_wallet-4.1.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6758e23c38bcfb2184a3a9f79a667d16f90004c642cbbb0735fbaebefce01c8a", size = 3364516, upload-time = "2026-05-28T16:36:38.916Z" },
+    { url = "https://files.pythonhosted.org/packages/d0/90/f108a1c45582c529efafcde7d8e4b804eecb68e5901ee2fa98333075e4e6/bittensor_wallet-4.1.0-cp314-cp314-macosx_10_12_x86_64.whl", hash = "sha256:c9fe4143534ac288d5d451aed926d4933874a62172e23448b4a6b4ddf3a44cb3", size = 944019, upload-time = "2026-05-28T16:36:53.736Z" },
+    { url = "https://files.pythonhosted.org/packages/b5/a1/a1e3c00b03de52f77020be94bb6b2f64fbeaa0b5a79676590505baf84c16/bittensor_wallet-4.1.0-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:9ffe957b65a9352914f860465719808a79b9a3f4d6638458a35896f7812c6f96", size = 888517, upload-time = "2026-05-28T16:36:47.076Z" },
+    { url = "https://files.pythonhosted.org/packages/24/45/2449b6f8e6f8e7c53339fcbdeca1a81adc67d1d9918a6e93458f4e5eddbc/bittensor_wallet-4.1.0-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:485dd54b7f48b254f8ba4ffa6d7607dc19479947e35c21e2da927f39cc19d669", size = 3154993, upload-time = "2026-05-28T16:36:24.862Z" },
+    { url = "https://files.pythonhosted.org/packages/3f/f7/5da15f895350546f48a5fb3d5db4b2508fa24f32df82be699d9a74619811/bittensor_wallet-4.1.0-cp314-cp314-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7db14417b84fd943667bd5eb2a307c20068eb63a22d2cdcba3aa556481d5b2dc", size = 3174400, upload-time = "2026-05-28T16:36:32.862Z" },
+    { url = "https://files.pythonhosted.org/packages/4d/ec/f6c005cf839491e478905db7caed3b19601575bed65905165a2c19e0bb76/bittensor_wallet-4.1.0-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:dcbac49f52f2d3c3cab0e98373a936443f4083c189bce72d72d25bb5b3dad264", size = 3363542, upload-time = "2026-05-28T16:36:40.362Z" },
+]
+
+[[package]]
 name = "bleak"
 version = "3.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -320,6 +353,7 @@ version = "1.0.1"
 source = { virtual = "." }
 dependencies = [
     { name = "bip32utils" },
+    { name = "bittensor-wallet" },
     { name = "eth-account" },
     { name = "eth-keys" },
     { name = "eth-utils" },
@@ -337,6 +371,7 @@ solana = [
 [package.metadata]
 requires-dist = [
     { name = "bip32utils" },
+    { name = "bittensor-wallet" },
     { name = "eth-account" },
     { name = "eth-keys" },
     { name = "eth-utils" },

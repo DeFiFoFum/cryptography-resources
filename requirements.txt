@@ -5,3 +5,5 @@ bip32utils
 eth-account
 eth-utils
 eth-keys
+# Substrate / Bittensor Keys
+bittensor-wallet

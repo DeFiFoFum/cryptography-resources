@@ -18,6 +18,8 @@ Commands:
     btc          Generate Bitcoin keys
     solana       Generate Solana keys
     tron         Generate TRON keys
+    substrate    Generate Substrate/Bittensor keys
+    bittensor    Alias for Substrate/Bittensor keys
     test         Run functionality tests
     test-entropy Run entropy validation suite
     clean        Remove cached files
@@ -69,6 +71,8 @@ def show_help():
 ║    btc          Generate Bitcoin keys                        ║
 ║    solana       Generate Solana keys                         ║
 ║    tron         Generate TRON keys                           ║
+║    substrate    Generate Substrate/Bittensor keys            ║
+║    bittensor    Alias for Substrate/Bittensor keys           ║
 ║                                                              ║
 ║  Testing:                                                    ║
 ║    test         Run functionality tests                      ║
@@ -146,6 +150,13 @@ def cmd_tron():
     )
 
 
+def cmd_substrate():
+    """Generate Substrate/Bittensor keys."""
+    return run_command(
+        ["uv", "run", "python", str(BIP39_DIR / "derive_substrate_keys.py")]
+    )
+
+
 def cmd_test():
     """Run functionality tests."""
     return run_command(
@@ -191,6 +202,8 @@ COMMANDS = {
     "btc": cmd_btc,
     "solana": cmd_solana,
     "tron": cmd_tron,
+    "substrate": cmd_substrate,
+    "bittensor": cmd_substrate,
     "test": cmd_test,
     "test-entropy": cmd_test_entropy,
     "clean": cmd_clean,
@@ -215,4 +228,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main() or 0)
-

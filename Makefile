@@ -1,7 +1,7 @@
 # Cryptography Resources - Makefile
 # For Mac/Linux. Windows users: use `uv run python tasks.py <command>`
 
-.PHONY: help install install-all quick secure mnemonic eth btc solana tron ledger-check test test-entropy test-all clean
+.PHONY: help install install-all quick secure mnemonic eth btc solana tron substrate bittensor ledger-check test test-entropy test-all clean
 
 # Default target
 help:
@@ -22,6 +22,8 @@ help:
 	@echo "║  make btc          Generate Bitcoin keys                     ║"
 	@echo "║  make solana       Generate Solana keys                      ║"
 	@echo "║  make tron         Generate TRON keys                        ║"
+	@echo "║  make substrate    Generate Substrate/Bittensor keys         ║"
+	@echo "║  make bittensor    Alias for substrate keys                  ║"
 	@echo "║                                                              ║"
 	@echo "║  Hardware Wallet:                                            ║"
 	@echo "║  make ledger-check Verify Ledger SE attestation (Nano S Plus)║"
@@ -76,6 +78,11 @@ solana:
 tron:
 	@uv run python ./BIP39/derive_tron_keys.py
 
+substrate:
+	@uv run python ./BIP39/derive_substrate_keys.py
+
+bittensor: substrate
+
 # Hardware wallet verification
 DEVICE ?= nano-s-plus
 ledger-check:
@@ -98,4 +105,3 @@ clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 	find . -type f -name "*.pyc" -delete 2>/dev/null || true
 	@echo "✅ Cleaned cached files"
-
