@@ -3,7 +3,7 @@ name = "cryptography-resources"
 version = "1.0.1"
 description = "Educational cryptography tools for BIP39 mnemonic generation and key derivation"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "mnemonic==0.21",
     # Bitcoin Keys
